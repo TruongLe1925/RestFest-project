@@ -3,9 +3,12 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     container_name: university-mysql
     restart: unless-stopped
     environment:
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: admissionPredicDB
       MYSQL_USER: springstudent
@@ -20,7 +23,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
   app:
     image: truongli/university:0.0.2
     container_name: university-app

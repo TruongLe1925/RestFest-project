@@ -1,13 +1,14 @@
+﻿SET NAMES 'utf8mb4';
+SET CHARACTER SET utf8mb4;
+DROP DATABASE IF EXISTS admissionPredicDB;
+CREATE DATABASE admissionPredicDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE admissionPredicDB;
-DROP TABLE IF EXISTS university;
 CREATE TABLE university (
     id INT AUTO_INCREMENT PRIMARY KEY,
     university_name VARCHAR(255) NOT NULL,
     average_admission_score DECIMAL(6, 2),
     year INT NOT NULL
-);
-
-
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 INSERT INTO university (university_name, average_admission_score, year) 
 VALUES 
 ('Đại học Bách Khoa Hà Nội', 28.15, 2025),
@@ -83,151 +84,77 @@ INSERT INTO major (major_name, university_id) VALUES
 ('Kỹ thuật Phần mềm', 14),
 ('Thiết kế đồ họa', 14);
 
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ kỹ thuật cơ điện tử', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Sư phạm tiếng Anh', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ kỹ thuật xây dựng', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật điều khiển và tự động hóa', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Logistics và quản lý chuỗi cung ứng', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Thủy lợi%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật tài nguyên nước', id FROM university WHERE university_name LIKE '%Thủy lợi%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kế toán', id FROM university WHERE university_name LIKE '%Thủy lợi%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kiến trúc', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật xây dựng', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Hệ thống điện', id FROM university WHERE university_name LIKE '%Điện lực%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản lý năng lượng', id FROM university WHERE university_name LIKE '%Điện lực%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Tài chính - Ngân hàng', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị kinh doanh', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Luật kinh tế', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kinh doanh thương mại', id FROM university WHERE university_name LIKE '%Thương mại%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Thương mại điện tử', id FROM university WHERE university_name LIKE '%Thương mại%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị khách sạn', id FROM university WHERE university_name LIKE '%Thương mại%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Luật hình sự', id FROM university WHERE university_name LIKE '%Luật Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Luật thương mại quốc tế', id FROM university WHERE university_name LIKE '%Luật Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kinh tế đối ngoại', id FROM university WHERE university_name LIKE '%Kinh tế - Luật (UEL)%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Thương mại điện tử', id FROM university WHERE university_name LIKE '%Kinh tế - Luật (UEL)%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Y khoa', id FROM university WHERE university_name LIKE '%Y Khoa Phạm Ngọc Thạch%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Y học cổ truyền', id FROM university WHERE university_name LIKE '%Y Khoa Phạm Ngọc Thạch%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Hóa dược', id FROM university WHERE university_name LIKE '%Dược Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Dược lâm sàng', id FROM university WHERE university_name LIKE '%Dược Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Sinh học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Hóa học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ sinh học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật cơ khí', id FROM university WHERE university_name LIKE '%Đà Nẵng - Bách khoa%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật điện tử - Viễn thông', id FROM university WHERE university_name LIKE '%Đà Nẵng - Bách khoa%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Marketing', id FROM university WHERE university_name LIKE '%Đà Nẵng - Kinh tế%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị dịch vụ du lịch và lữ hành', id FROM university WHERE university_name LIKE '%Đà Nẵng - Kinh tế%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật phần mềm', id FROM university WHERE university_name LIKE '%Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Nông nghiệp', id FROM university WHERE university_name LIKE '%Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Nuôi trồng thủy sản', id FROM university WHERE university_name LIKE '%Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Ngôn ngữ Anh', id FROM university WHERE university_name LIKE '%Văn Lang%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Thiết kế thời trang', id FROM university WHERE university_name LIKE '%Văn Lang%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quan hệ công chúng', id FROM university WHERE university_name LIKE '%Văn Lang%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị khách sạn', id FROM university WHERE university_name LIKE '%Hoa Sen%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Tâm lý học', id FROM university WHERE university_name LIKE '%Hoa Sen%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật Robot và Trí tuệ nhân tạo', id FROM university WHERE university_name LIKE '%Bách Khoa Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật Hàng không', id FROM university WHERE university_name LIKE '%Bách Khoa - ĐHQG TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ Kỹ thuật Cơ điện tử', id FROM university WHERE university_name LIKE '%Công nghiệp TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ Kỹ thuật Hóa học', id FROM university WHERE university_name LIKE '%Công nghiệp TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật Mỏ', id FROM university WHERE university_name LIKE '%Mỏ - Địa chất%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Địa chất học', id FROM university WHERE university_name LIKE '%Mỏ - Địa chất%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật Điện tử - Viễn thông', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật Nam Định%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị Tài chính quốc tế', id FROM university WHERE university_name LIKE '%Ngoại thương (FTU)%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kinh doanh quốc tế', id FROM university WHERE university_name LIKE '%Tài chính - Marketing%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị thương hiệu', id FROM university WHERE university_name LIKE '%Tài chính - Marketing%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Bất động sản', id FROM university WHERE university_name LIKE '%Kinh tế Quốc dân (NEU)%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Luật dân sự', id FROM university WHERE university_name LIKE '%Luật TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị chuỗi cung ứng', id FROM university WHERE university_name LIKE '%Quản lý và Công nghệ TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Y học dự phòng', id FROM university WHERE university_name LIKE '%Y Dược Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật xét nghiệm y học', id FROM university WHERE university_name LIKE '%Y Dược Cần Thơ%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Khoa học vật liệu', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQGHN%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Khí tượng và khí hậu học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQGHN%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Sư phạm Ngữ văn', id FROM university WHERE university_name LIKE '%Sư phạm Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Sư phạm Tiếng Anh', id FROM university WHERE university_name LIKE '%Sư phạm TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Văn hóa học', id FROM university WHERE university_name LIKE '%Khoa học Xã hội và Nhân văn - Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản trị dịch vụ du lịch và lữ hành', id FROM university WHERE university_name LIKE '%Khoa học Xã hội và Nhân văn - Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Đông phương học', id FROM university WHERE university_name LIKE '%Sài Gòn%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kỹ thuật phần mềm', id FROM university WHERE university_name LIKE '%Sài Gòn%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kinh tế học', id FROM university WHERE university_name LIKE '%Vinh%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Sư phạm Mầm non', id FROM university WHERE university_name LIKE '%Vinh%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ thực phẩm', id FROM university WHERE university_name LIKE '%Quy Nhơn%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Quản lý đất đai', id FROM university WHERE university_name LIKE '%Thái Nguyên%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ Kỹ thuật Điện tử', id FROM university WHERE university_name LIKE '%Thái Nguyên%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Mở Hà Nội%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Công nghệ sinh học', id FROM university WHERE university_name LIKE '%Mở TP.HCM%';
-INSERT INTO major (major_name, university_id) 
-SELECT 'Kiến trúc nội thất', id FROM university WHERE university_name LIKE '%Tôn Đức Thắng%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ kỹ thuật cơ điện tử', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Sư phạm tiếng Anh', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ kỹ thuật xây dựng', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật điều khiển và tự động hóa', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
+INSERT INTO major (major_name, university_id) SELECT 'Logistics và quản lý chuỗi cung ứng', id FROM university WHERE university_name LIKE '%Giao thông Vận tải%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Thủy lợi%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật tài nguyên nước', id FROM university WHERE university_name LIKE '%Thủy lợi%';
+INSERT INTO major (major_name, university_id) SELECT 'Kế toán', id FROM university WHERE university_name LIKE '%Thủy lợi%';
+INSERT INTO major (major_name, university_id) SELECT 'Kiến trúc', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật xây dựng', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Xây dựng Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Hệ thống điện', id FROM university WHERE university_name LIKE '%Điện lực%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản lý năng lượng', id FROM university WHERE university_name LIKE '%Điện lực%';
+INSERT INTO major (major_name, university_id) SELECT 'Tài chính - Ngân hàng', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị kinh doanh', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Luật kinh tế', id FROM university WHERE university_name LIKE '%Ngân hàng TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Kinh doanh thương mại', id FROM university WHERE university_name LIKE '%Thương mại%';
+INSERT INTO major (major_name, university_id) SELECT 'Thương mại điện tử', id FROM university WHERE university_name LIKE '%Thương mại%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị khách sạn', id FROM university WHERE university_name LIKE '%Thương mại%';
+INSERT INTO major (major_name, university_id) SELECT 'Luật hình sự', id FROM university WHERE university_name LIKE '%Luật Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Luật thương mại quốc tế', id FROM university WHERE university_name LIKE '%Luật Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Kinh tế đối ngoại', id FROM university WHERE university_name LIKE '%Kinh tế - Luật (UEL)%';
+INSERT INTO major (major_name, university_id) SELECT 'Thương mại điện tử', id FROM university WHERE university_name LIKE '%Kinh tế - Luật (UEL)%';
+INSERT INTO major (major_name, university_id) SELECT 'Y khoa', id FROM university WHERE university_name LIKE '%Y Khoa Phạm Ngọc Thạch%';
+INSERT INTO major (major_name, university_id) SELECT 'Y học cổ truyền', id FROM university WHERE university_name LIKE '%Y Khoa Phạm Ngọc Thạch%';
+INSERT INTO major (major_name, university_id) SELECT 'Hóa dược', id FROM university WHERE university_name LIKE '%Dược Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Dược lâm sàng', id FROM university WHERE university_name LIKE '%Dược Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Sinh học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Hóa học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ sinh học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQG TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật cơ khí', id FROM university WHERE university_name LIKE '%Đà Nẵng - Bách khoa%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật điện tử - Viễn thông', id FROM university WHERE university_name LIKE '%Đà Nẵng - Bách khoa%';
+INSERT INTO major (major_name, university_id) SELECT 'Marketing', id FROM university WHERE university_name LIKE '%Đà Nẵng - Kinh tế%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị dịch vụ du lịch và lữ hành', id FROM university WHERE university_name LIKE '%Đà Nẵng - Kinh tế%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật phần mềm', id FROM university WHERE university_name LIKE '%Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Nông nghiệp', id FROM university WHERE university_name LIKE '%Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Nuôi trồng thủy sản', id FROM university WHERE university_name LIKE '%Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Ngôn ngữ Anh', id FROM university WHERE university_name LIKE '%Văn Lang%';
+INSERT INTO major (major_name, university_id) SELECT 'Thiết kế thời trang', id FROM university WHERE university_name LIKE '%Văn Lang%';
+INSERT INTO major (major_name, university_id) SELECT 'Quan hệ công chúng', id FROM university WHERE university_name LIKE '%Văn Lang%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị khách sạn', id FROM university WHERE university_name LIKE '%Hoa Sen%';
+INSERT INTO major (major_name, university_id) SELECT 'Tâm lý học', id FROM university WHERE university_name LIKE '%Hoa Sen%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật Robot và Trí tuệ nhân tạo', id FROM university WHERE university_name LIKE '%Bách Khoa Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật Hàng không', id FROM university WHERE university_name LIKE '%Bách Khoa - ĐHQG TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ Kỹ thuật Cơ điện tử', id FROM university WHERE university_name LIKE '%Công nghiệp TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ Kỹ thuật Hóa học', id FROM university WHERE university_name LIKE '%Công nghiệp TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật Mỏ', id FROM university WHERE university_name LIKE '%Mỏ - Địa chất%';
+INSERT INTO major (major_name, university_id) SELECT 'Địa chất học', id FROM university WHERE university_name LIKE '%Mỏ - Địa chất%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật Điện tử - Viễn thông', id FROM university WHERE university_name LIKE '%Sư phạm Kỹ thuật Nam Định%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị Tài chính quốc tế', id FROM university WHERE university_name LIKE '%Ngoại thương (FTU)%';
+INSERT INTO major (major_name, university_id) SELECT 'Kinh doanh quốc tế', id FROM university WHERE university_name LIKE '%Tài chính - Marketing%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị thương hiệu', id FROM university WHERE university_name LIKE '%Tài chính - Marketing%';
+INSERT INTO major (major_name, university_id) SELECT 'Bất động sản', id FROM university WHERE university_name LIKE '%Kinh tế Quốc dân (NEU)%';
+INSERT INTO major (major_name, university_id) SELECT 'Luật dân sự', id FROM university WHERE university_name LIKE '%Luật TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị chuỗi cung ứng', id FROM university WHERE university_name LIKE '%Quản lý và Công nghệ TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Y học dự phòng', id FROM university WHERE university_name LIKE '%Y Dược Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật xét nghiệm y học', id FROM university WHERE university_name LIKE '%Y Dược Cần Thơ%';
+INSERT INTO major (major_name, university_id) SELECT 'Khoa học vật liệu', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQGHN%';
+INSERT INTO major (major_name, university_id) SELECT 'Khí tượng và khí hậu học', id FROM university WHERE university_name LIKE '%Khoa học Tự nhiên - ĐHQGHN%';
+INSERT INTO major (major_name, university_id) SELECT 'Sư phạm Ngữ văn', id FROM university WHERE university_name LIKE '%Sư phạm Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Sư phạm Tiếng Anh', id FROM university WHERE university_name LIKE '%Sư phạm TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Văn hóa học', id FROM university WHERE university_name LIKE '%Khoa học Xã hội và Nhân văn - Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản trị dịch vụ du lịch và lữ hành', id FROM university WHERE university_name LIKE '%Khoa học Xã hội và Nhân văn - Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Đông phương học', id FROM university WHERE university_name LIKE '%Sài Gòn%';
+INSERT INTO major (major_name, university_id) SELECT 'Kỹ thuật phần mềm', id FROM university WHERE university_name LIKE '%Sài Gòn%';
+INSERT INTO major (major_name, university_id) SELECT 'Kinh tế học', id FROM university WHERE university_name LIKE '%Vinh%';
+INSERT INTO major (major_name, university_id) SELECT 'Sư phạm Mầm non', id FROM university WHERE university_name LIKE '%Vinh%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ thực phẩm', id FROM university WHERE university_name LIKE '%Quy Nhơn%';
+INSERT INTO major (major_name, university_id) SELECT 'Quản lý đất đai', id FROM university WHERE university_name LIKE '%Thái Nguyên%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ Kỹ thuật Điện tử', id FROM university WHERE university_name LIKE '%Thái Nguyên%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ thông tin', id FROM university WHERE university_name LIKE '%Mở Hà Nội%';
+INSERT INTO major (major_name, university_id) SELECT 'Công nghệ sinh học', id FROM university WHERE university_name LIKE '%Mở TP.HCM%';
+INSERT INTO major (major_name, university_id) SELECT 'Kiến trúc nội thất', id FROM university WHERE university_name LIKE '%Tôn Đức Thắng%';
